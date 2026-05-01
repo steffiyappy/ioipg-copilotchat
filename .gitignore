@@ -1,0 +1,5 @@
+encrypted/
+index-plain.html
+.staticrypt.json
+enc.txt
+salt.txt
