@@ -203,7 +203,9 @@
         <input type="password" id="staticrypt-password" placeholder="Enter session password" autocomplete="current-password" />
         <button type="button" id="toggle-pw" onclick="(function(){var i=document.getElementById('staticrypt-password'),b=document.getElementById('toggle-pw');if(i.type==='password'){i.type='text';b.textContent='Hide';}else{i.type='password';b.textContent='Show';}})()">Show</button>
       </div>
+      <!-- hidden elements required by staticrypt JS -->
       <input type="checkbox" id="staticrypt-remember" style="display:none" checked />
+      <img class="staticrypt-toggle-password-visibility" style="display:none" src="" alt="" />
       <button type="submit">Enter</button>
       <div class="staticrypt-err" id="staticrypt-err-msg"></div>
     </form>
@@ -874,7 +876,7 @@ exports.init = init;
 
                 const { isSuccessful } = await staticrypt.handleDecryptionOfPage(password, isRememberChecked);
 
-                if (!isSuccessful) { var e=document.getElementById("staticrypt-err-msg"); if(e){e.textContent="Incorrect password. Please try again.";} }
+                if (!isSuccessful) { var errEl=document.getElementById("staticrypt-err-msg"); if(errEl){errEl.textContent="Incorrect password. Please try again.";} }
             });
         </script>
     </body>
